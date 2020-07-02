@@ -1,5 +1,7 @@
 package com.nt.ioc2;
 
+import java.lang.management.GarbageCollectorMXBean;
+
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -30,6 +32,12 @@ public class DriverClass {
 		
 		Car carObj2 = (Car) xmlBeanFactory.getBean("c4"); //using shortform/ p-namespace in xml file
 		carObj2.display();
+
+		Car obj3 = (Car) xmlBeanFactory.getBean("c4"); //scope is: prototype, so multiple constructor will create
+		obj3.display();
+		
+		System.out.println(carObj2.hashCode());
+		System.out.println(obj3.hashCode());
 
 	}
 

@@ -10,6 +10,14 @@ public class Car {
 		System.out.println("car constructor");
 	}
 	
+	public void initCar() {
+		System.out.println("init car");
+	}
+	
+	public void destroyCar() {
+		System.out.println("destroy car");
+	}
+
 	public void setCarName(String carName) {
 		this.carName = carName;
 	}

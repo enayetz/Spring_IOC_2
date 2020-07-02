@@ -19,7 +19,9 @@
 		<property name="engName" ref="e" />
 	</bean>
 
-	<bean id="c3" class="com.nt.ioc2.Car">
+	<!-- using init & destroy method -->
+	<bean id="c3" class="com.nt.ioc2.Car" init-method="initCar"
+		destroy-method="destroyCar">
 		<property name="carName" value="Special" />
 		<property name="engName">
 			<bean class="com.nt.ioc2.Engine">
@@ -29,11 +31,11 @@
 	</bean>
 
 	<!-- using p Name Space -->
-	
+
 	<bean id="e1" class="com.nt.ioc2.Engine" p:engineModel="SM-Ford" />
 
-	<bean id="c4" class="com.nt.ioc2.Car" p:carName="Ford Tauras"
-		p:engName-ref="e1" />
+	<!-- using scope attribute -->
+	<bean id="c4" class="com.nt.ioc2.Car" p:carName="Ford Tauras" p:engName-ref="e1" scope="prototype" />
 
 
 </beans>
